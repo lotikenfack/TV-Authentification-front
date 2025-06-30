@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "com.smartgrowthit.tvlogin.app-debug-37:/drawable_rounded_bg.xml.flat",
+        "source": "com.smartgrowthit.tvlogin.app-main-39:/drawable/rounded_bg.xml"
+    },
+    {
+        "merged": "com.smartgrowthit.tvlogin.app-debug-37:/layout_floating_logout_button.xml.flat",
+        "source": "com.smartgrowthit.tvlogin.app-main-39:/layout/floating_logout_button.xml"
+    },
+    {
+        "merged": "com.smartgrowthit.tvlogin.app-debug-37:/drawable_ic_logout.xml.flat",
+        "source": "com.smartgrowthit.tvlogin.app-main-39:/drawable/ic_logout.xml"
+    },
+    {
+        "merged": "com.smartgrowthit.tvlogin.app-debug-37:/layout_fragment_login.xml.flat",
+        "source": "com.smartgrowthit.tvlogin.app-main-39:/layout/fragment_login.xml"
+    }
+]

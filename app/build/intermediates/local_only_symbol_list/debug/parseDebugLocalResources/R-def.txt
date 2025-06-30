@@ -1,0 +1,11 @@
+R_DEF: Internal format may change without notice
+local
+drawable ic_logout
+drawable rounded_bg
+id errorMsg
+id loginBtn
+id logoutBtn
+id password
+id username
+layout floating_logout_button
+layout fragment_login
