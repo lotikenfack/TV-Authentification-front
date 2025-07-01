@@ -13,6 +13,7 @@ class MainActivity : FragmentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AuthManager.init(this)
         if (!AuthManager.isLoggedIn()) {
             showLogin()
         } else {
