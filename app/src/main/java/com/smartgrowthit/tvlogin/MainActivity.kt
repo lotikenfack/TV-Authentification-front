@@ -34,6 +34,7 @@ class MainActivity : FragmentActivity() {
 
     fun forceLogout(reason: String) {
         AuthManager.clearToken()
+        AuthManager.clearAccessToken()
         stopService(Intent(this, FloatingLogoutService::class.java))
         showLogin(reason)
     }

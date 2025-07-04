@@ -53,12 +53,17 @@ class LoginFragment : Fragment() {
         lifecycleScope.launch {
             try {
                 val response = ApiClient.api.login(LoginRequest(user, pass))
-                if (response.isSuccessful && response.body() != null) {
-                    AuthManager.saveToken(response.body()!!.token)
+                val loginResponse = response.body()
+                val token = loginResponse?.access
+                val accessToken = loginResponse?.token // Assuming access token is the one needed for authentication
+                if (response.isSuccessful && token != null) {
+                    AuthManager.saveToken(token)
+                    AuthManager.saveAccessToken(accessToken ?: "")
                     (activity as? MainActivity)?.onLoginSuccess()
                 } else {
                     val error = response.errorBody()?.string() ?: "Erreur inconnue"
                     errorMsg.text = when {
+                        token == null -> "Erreur: le serveur n'a pas retourné de token d'accès (access)"
                         error.contains("invalid") -> "Identifiants invalides"
                         error.contains("expired") -> "Vos identifiants ont expiré"
                         error.contains("disabled") -> "Compte désactivé"

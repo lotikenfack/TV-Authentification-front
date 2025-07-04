@@ -30,6 +30,16 @@ object AuthManager {
     fun clearToken() {
         prefs.edit().remove("jwt_token").apply()
     }
+    fun saveAccessToken(token: String) {
+        prefs.edit().putString("access_token", token).apply()
+    }
+
+    fun getAccessToken(): String? = prefs.getString("access_token", null)
+
+    fun clearAccessToken() {
+        prefs.edit().remove("access_token").apply()
+    }
+
 
     fun isLoggedIn(): Boolean = getToken() != null
 }

@@ -41,8 +41,9 @@ class FloatingLogoutService : Service() {
         button.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {
                 val token = AuthManager.getToken()
-                if (token != null) {
-                    ApiClient.api.logout("Bearer $token")
+                val accessKey = AuthManager.getAccessToken() // ou getAccessKey() si vous stockez la clé séparément
+                if (token != null && accessKey != null) {
+                    ApiClient.api.logout("Bearer $token", accessKey)
                 }
                 AuthManager.clearToken()
                 val intent = Intent(this@FloatingLogoutService, MainActivity::class.java)
