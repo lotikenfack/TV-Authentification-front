@@ -9,12 +9,12 @@ data class SessionStatusResponse(val valid: Boolean, val reason: String?)
 data class LogoutResponse(val success: Boolean)
 
 interface ApiService {
-    @POST("/api/login/")
+    @POST("/accounts/login/")
     suspend fun login(@Body request: LoginRequest): Response<LoginResponse>
 
-    @GET("/api/session/status/")
+    @GET("/accounts/session/status/")
     suspend fun sessionStatus(@Header("Authorization") token: String): Response<SessionStatusResponse>
 
-    @POST("/api/logout/")
+    @POST("/accounts/logout/")
     suspend fun logout(@Header("Authorization") token: String): Response<LogoutResponse>
 }
